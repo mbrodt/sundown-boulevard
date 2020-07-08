@@ -13,6 +13,7 @@
     "@nuxt/components": "^1.0.7",
     "@nuxtjs/axios": "^5.11.0",
     "canvas-confetti": "^1.2.0",
+    "moment": "^2.27.0",
     "nuxt": "^2.13.0",
     "vue-carousel": "^0.18.0",
     "vue-ctk-date-time-picker": "^2.5.0"
