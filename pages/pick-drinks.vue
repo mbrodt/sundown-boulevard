@@ -6,11 +6,11 @@
         class="bg-white w-2/3 rounded-lg shadow-2xl grid grid-cols-2 gap-16 px-8 py-16"
       >
         <div
-          class="flex flex-col items-center relative py-8 rounded-lg transition-colors duration-150 ease"
+          class="flex flex-col items-center relative py-8 rounded-lg transition-colors duration-150 ease border border-transparent"
           @click="toggleDrink(drink)"
           v-for="drink in drinks"
           :key="drink.name"
-          :class="{ 'is-selected': isDrinkSelected(drink) }"
+          :class="{ 'border-secondary': isDrinkSelected(drink) }"
         >
           <img
             class="absolute top-0 right-0 pr-16 pt-8 opacity-0 transition-opacity duration-300 ease"
@@ -80,7 +80,6 @@ export default {
       return !!drinkIsSelected
     },
     onClick() {
-      console.log('HELLO DONT CRASH')
       this.$router.push({
         path: '/order-date',
         query: {
@@ -95,9 +94,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.is-selected {
-  @apply bg-secondary bg-opacity-25;
-}
-</style>
