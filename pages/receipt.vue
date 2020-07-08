@@ -24,7 +24,7 @@
               alt="The dish"
               class="mx-auto w-32 h-32 rounded-lg"
             />
-            <p>{{ dish.name }}</p>
+            <p class="mt-1 font-bold">{{ dish.name }}</p>
           </div>
         </div>
 
@@ -41,7 +41,7 @@
               :key="drink.id"
             >
               <img class="h-32" :src="drink.image" alt="Drink" />
-              <p>{{ drink.name }}</p>
+              <p class="mt-1 font-bold">{{ drink.name }}</p>
             </div>
           </div>
         </div>
