@@ -22,14 +22,18 @@
             <img
               class="w-24 h-24 transform rotate-180"
               src="~assets/images/arrow.svg"
-              alt=""
+              alt="Left arrow"
             />
           </button>
           <span class="mx-8 text-6xl text-primary">{{
             $store.state.order.amountOfPeople
           }}</span>
           <button @click="incrementAmount">
-            <img class="w-24 h-24" src="~assets/images/arrow.svg" alt="" />
+            <img
+              class="w-24 h-24"
+              src="~assets/images/arrow.svg"
+              alt="Right arrow"
+            />
           </button>
         </div>
         <div>
