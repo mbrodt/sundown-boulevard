@@ -1,11 +1,23 @@
 # sundown-boulevard
 
-## TODO
+Sundown Boulevard is a restaurant booking system, made for a coding challenge at [Dwarf](https://dwarf.dk/)
 
-- Fix datetime picker acting weird
-- Finish the flow when "updating"
-- Add animations and transitions
-- Put on Netlify
+## Features:
+
+- Get a random dish from The Meal DB
+- Select drinks from the Punk API
+- Select a date within 16-23 on weekdays
+- Add amount of people
+- Confirm booking and save it to LocalStorage
+- Retrieve order by email
+
+## Possible future additions:
+
+- Make responsive
+- Format date on recipe to be more readable
+- Add some nicer error messages
+- Add loading states
+- More animations, like on Drinks and amountOfPeople switcher
 
 ## Build Setup
 
