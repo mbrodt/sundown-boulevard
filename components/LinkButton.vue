@@ -3,7 +3,6 @@
     :type="type"
     @click="onClick"
     class="btn w-full flex items-center justify-center"
-    :class="{ 'bg-gray-800': disabled }"
     :disabled="disabled"
   >
     <slot />

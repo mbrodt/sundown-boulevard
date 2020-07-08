@@ -31,7 +31,7 @@
 
           <LinkButton
             :disabled="$store.state.order.drinks.length <= 0"
-            @click="onClick"
+            @click="goToNext"
             >When do you want it?</LinkButton
           >
         </div>
@@ -79,7 +79,7 @@ export default {
       )
       return !!drinkIsSelected
     },
-    onClick() {
+    goToNext() {
       this.$router.push({
         path: '/order-date',
         query: {

@@ -25,8 +25,7 @@
       <div class="ml-8 w-1/3 h-64 bg-white rounded-lg shadow-2xl">
         <div class="px-12 py-8 flex flex-col h-full justify-around text-center">
           <h2>Next up: Let's pick some drinks!</h2>
-
-          <LinkButton @click="onClick">I love beer</LinkButton>
+          <LinkButton @click="goToNext">I love beer</LinkButton>
         </div>
       </div>
     </div>
@@ -62,7 +61,7 @@ export default {
           this.error = err
         })
     },
-    onClick() {
+    goToNext() {
       this.$store.commit('order/addDish', this.dish)
       this.$router.push({
         path: '/pick-drinks',

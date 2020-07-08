@@ -5,14 +5,14 @@
       Sundown Boulevard is ready to welcome you with our amazing dishes and
       fabulous drinks. Create your order in just a few short steps!
     </p>
-    <LinkButton @click="onClick" target="/pick-dish">Let's go</LinkButton>
+    <LinkButton @click="startOrder" target="/pick-dish">Let's go</LinkButton>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
-    onClick() {
+    startOrder() {
       this.$router.push({
         path: '/pick-dish',
       })
@@ -20,5 +20,3 @@ export default {
   },
 }
 </script>
-
-<style scoped></style>

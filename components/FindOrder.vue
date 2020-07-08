@@ -5,7 +5,6 @@
       If you've previously added an order, write your email below and we'll find
       it for you ✌
     </p>
-
     <form
       @submit.prevent="findOrder"
       class="mt-5 sm:mt-8 sm:flex max-w-xl xl:max-w-2xl"

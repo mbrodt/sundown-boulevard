@@ -15,12 +15,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  transition: 'page',
-}
-</script>
-
 <style>
 .home-grid {
   display: grid;

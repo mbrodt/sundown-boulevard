@@ -67,4 +67,6 @@ export default {
   build: {},
 
   loading: false,
+
+  pageTransition: {},
 }

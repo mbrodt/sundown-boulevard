@@ -75,11 +75,8 @@ export default {
   data() {
     return {
       // If the time/email exists in the store (like if we go back to drinks and forward again), use that. Otherwise, set the current time as base (in the same format as expected by the calendar)
-      email: this.$store.state.order.email ? this.$store.state.order.email : '',
-      selectedDateTime: this.$store.state.order.time
-        ? this.$store.state.order.time
-        : null,
-      amountOfPeople: 1,
+      email: this.$store.state.order.email,
+      selectedDateTime: this.$store.state.order.time,
       disabledHours: [
         '00',
         '01',
