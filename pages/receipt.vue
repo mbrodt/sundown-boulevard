@@ -5,7 +5,7 @@
       <p class="text-lg text-center">
         Congratulations! Your order has been confirmed. We look forward to
         serving you at
-        <span class="text-primary font-bold">{{ formatDate(time) }}</span
+        <span class="text-primary font-bold">{{ time }}</span
         >. We've registered
         <span class="text-primary font-bold">{{ amountOfPeople }}</span> people,
         and <span class="text-primary font-bold">{{ email }}</span> as your
@@ -65,18 +65,6 @@ export default {
     amountOfPeople: (state) => state.order.amountOfPeople,
   }),
   methods: {
-    formatDate(time) {
-      const date = new Date(time)
-      const options = {
-        weekday: 'long',
-        month: 'short',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-      }
-      const formatted = new Intl.DateTimeFormat('en-US', options).format(date)
-      return formatted
-    },
     resetFlow() {
       this.$router.push({
         path: '/',
@@ -85,22 +73,26 @@ export default {
     },
   },
   mounted() {
-    const {
-      dish,
-      drinks,
-      time,
-      email,
-      amountOfPeople,
-    } = this.$store.state.order
-    // if (!dish || drinks.length === 0 || !time || !email || !amountOfPeople) {
-    //   return this.$router.push('/')
-    // }
+    // Redirect to the homepage if someone types /receipt in the URL without going through the flow
+    if (
+      !this.dish ||
+      this.drinks.length === 0 ||
+      !this.time ||
+      !this.email ||
+      !this.amountOfPeople
+    ) {
+      return this.$router.push('/')
+    }
+
     this.$store.commit('order/saveOrder')
-    confetti({
-      particleCount: 200,
-      spread: 120,
-      origin: { y: 0.5 },
-    })
+
+    setTimeout(() => {
+      confetti({
+        particleCount: 200,
+        spread: 120,
+        origin: { y: 0.5 },
+      })
+    }, 300)
   },
 }
 </script>
