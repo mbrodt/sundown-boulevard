@@ -21,6 +21,7 @@
         Find
       </button>
     </form>
+    <p class="mt-2 text-red-600" v-if="error">{{ error }}</p>
   </div>
 </template>
 
@@ -29,6 +30,7 @@ export default {
   data() {
     return {
       email: '',
+      error: '',
     }
   },
   methods: {
@@ -42,6 +44,9 @@ export default {
             updating: true,
           },
         })
+      } else {
+        this.error =
+          'Sorry, but that email does not appear to have any registered orders 🤔'
       }
     },
   },
