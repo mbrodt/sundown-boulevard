@@ -6,7 +6,7 @@
         class="bg-white w-2/3 rounded-lg shadow-2xl grid grid-cols-2 gap-16 px-8 py-16"
       >
         <div
-          class="flex flex-col items-center relative py-8 rounded-lg transition-colors duration-150 ease border border-transparent"
+          class="flex flex-col items-center relative py-8 rounded-lg transition-colors duration-150 ease border border-transparent cursor-pointer hover:bg-secondary hover:bg-opacity-25"
           @click="toggleDrink(drink)"
           v-for="drink in drinks"
           :key="drink.name"
