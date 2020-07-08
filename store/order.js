@@ -1,4 +1,4 @@
-export const state = () => {
+const getDefaultState = () => {
   return {
     dish: null,
     drinks: [],
@@ -6,6 +6,10 @@ export const state = () => {
     email: '',
     amountOfPeople: 3,
   }
+}
+
+export const state = () => {
+  return getDefaultState()
 }
 
 export const mutations = {
@@ -50,13 +54,10 @@ export const mutations = {
     localStorage.setItem(state.email, JSON.stringify(state))
   },
   loadOrder(state, storedOrder) {
-    const { dish, drinks, time, email, amountOfPeople } = JSON.parse(
-      storedOrder
-    )
-    state.dish = dish
-    state.drinks = drinks
-    state.time = time
-    state.email = email
-    state.amountOfPeople = amountOfPeople
+    const order = JSON.parse(storedOrder)
+    Object.assign(state, order)
+  },
+  resetOrder(state) {
+    Object.assign(state, getDefaultState())
   },
 }

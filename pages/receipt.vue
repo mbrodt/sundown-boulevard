@@ -47,6 +47,9 @@
         </div>
       </div>
     </div>
+    <div class="mt-8 max-w-xs mx-auto">
+      <LinkButton @click="resetFlow">Make another order</LinkButton>
+    </div>
   </div>
 </template>
 
@@ -73,6 +76,12 @@ export default {
       }
       const formatted = new Intl.DateTimeFormat('en-US', options).format(date)
       return formatted
+    },
+    resetFlow() {
+      this.$router.push({
+        path: '/',
+      })
+      this.$store.commit('order/resetOrder')
     },
   },
   mounted() {
