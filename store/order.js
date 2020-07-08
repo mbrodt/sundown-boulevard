@@ -50,7 +50,7 @@ export const mutations = {
     state.email = email
   },
   saveOrder(state) {
-    // This is where we would normally save the order to the backend through an API call
+    // This is where we would normally save the order to the backend with an API call
     localStorage.setItem(state.email, JSON.stringify(state))
   },
   loadOrder(state, storedOrder) {

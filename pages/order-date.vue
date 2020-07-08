@@ -4,10 +4,12 @@
     <div class="flex">
       <div class="w-1/2">
         <VueCtkDateTimePicker
+          format="DD-MM-YYYY HH:mm"
           :no-keyboard="true"
           inline
           no-weekends-days
           :min-date="today"
+          :minute-interval="15"
           color="#BA2329"
           :disabled-hours="disabledHours"
           v-model="selectedDateTime"
@@ -43,7 +45,13 @@
               type="email"
             />
             <div class="mt-8 w-64">
-              <LinkButton type="submit">Let's book it!</LinkButton>
+              <LinkButton
+                :disabled="!email || !selectedDateTime"
+                type="submit"
+                >{{
+                  $route.query.updating ? 'Update order' : "Let's book it"
+                }}</LinkButton
+              >
             </div>
           </form>
         </div>
@@ -53,6 +61,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
 export default {
@@ -61,12 +70,11 @@ export default {
   },
   data() {
     return {
+      // If the time/email exists in the store (like if we go back to drinks and forward again), use that. Otherwise, set the current time as base (in the same format as expected by the calendar)
       email: this.$store.state.order.email ? this.$store.state.order.email : '',
-      // If the time exists in the store (like if we go back to drinks and forward again), use that. Otherwise, set the current time as base
-      selectedDateTime: this.$store.state.order.time,
-      // this.$store.state.order.time
-      //   ? this.$store.state.order.time
-      //   : new Date().toISOString(),
+      selectedDateTime: this.$store.state.order.time
+        ? this.$store.state.order.time
+        : null,
       amountOfPeople: 1,
       disabledHours: [
         '00',
@@ -92,7 +100,7 @@ export default {
   },
   computed: {
     today() {
-      return new Date().toISOString()
+      return moment().format('YYYY-MM-DD')
     },
   },
 
@@ -106,7 +114,6 @@ export default {
     onSubmit() {
       this.$store.commit('order/addEmail', this.email)
       this.$store.commit('order/addTime', this.selectedDateTime)
-
       this.$router.push({
         path: '/receipt',
       })
